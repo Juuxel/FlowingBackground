@@ -38,14 +38,14 @@ public final class ConfigScreen extends Screen {
         ));
 
         double initialValue = speedToValue(FlowingBackground.speed);
-        addButton(new SliderWidget(width / 2 - 100, height / 2 - 20, 200, 20, getMessage(initialValue), initialValue) {
+        addButton(new SliderWidget(width / 2 - 100, height / 2 - 20, 200, 20, getSpeedMessage(initialValue), initialValue) {
             {
                 updateMessage();
             }
 
             @Override
             protected void updateMessage() {
-                setMessage(ConfigScreen.getMessage(value));
+                setMessage(ConfigScreen.getSpeedMessage(value));
             }
 
             @Override
@@ -53,6 +53,17 @@ public final class ConfigScreen extends Screen {
                 FlowingBackground.speed = valueToSpeed(value);
             }
         });
+
+        addButton(new ButtonWidget(
+            width / 2 - 100,
+            height / 2 - 45,
+            200, 20,
+            getPanoramaMessage(FlowingBackground.replaceTitleScreen),
+            button -> {
+                FlowingBackground.replaceTitleScreen = !FlowingBackground.replaceTitleScreen;
+                button.setMessage(getPanoramaMessage(FlowingBackground.replaceTitleScreen));
+            }
+        ));
     }
 
     @Override
@@ -63,8 +74,12 @@ public final class ConfigScreen extends Screen {
         super.render(matrices, mouseX, mouseY, delta);
     }
 
-    private static Text getMessage(double value) {
+    private static Text getSpeedMessage(double value) {
         return new TranslatableText("gui.flowing_background.config.speed", SPEED_FORMAT.format(valueToSpeed(value)));
+    }
+
+    private static Text getPanoramaMessage(boolean value) {
+        return new TranslatableText("gui.flowing_background.config.replace_title_screen", new TranslatableText(value ? "options.on" : "options.off"));
     }
 
     private static double speedToValue(float speed) {
