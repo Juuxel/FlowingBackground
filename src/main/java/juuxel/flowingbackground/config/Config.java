@@ -15,12 +15,14 @@ import java.util.Properties;
 public final class Config {
     private static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDirectory().toPath().resolve("FlowingBackground.properties");
     private static final String KEY_SPEED = "speed";
+    private static final String KEY_REPLACE_TITLE_SCREEN = "replace-title-screen";
 
     private Config() {}
 
     private static Properties createProperties() {
         Properties properties = new Properties();
         properties.setProperty(KEY_SPEED, String.valueOf(FlowingBackground.speed));
+        properties.setProperty(KEY_REPLACE_TITLE_SCREEN, String.valueOf(FlowingBackground.replaceTitleScreen));
 
         return properties;
     }
@@ -35,6 +37,7 @@ public final class Config {
             properties.load(reader);
 
             FlowingBackground.speed = Float.parseFloat(properties.getProperty(KEY_SPEED));
+            FlowingBackground.replaceTitleScreen = Boolean.parseBoolean(properties.getProperty(KEY_REPLACE_TITLE_SCREEN));
         } catch (IOException e) {
             throw new UncheckedIOException("Could not load Flowing Background config file!", e);
         }

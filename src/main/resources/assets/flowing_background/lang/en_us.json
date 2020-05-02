@@ -1,4 +1,5 @@
 {
   "gui.flowing_background.config.title": "Flowing Background",
-  "gui.flowing_background.config.speed": "Speed: %s"
+  "gui.flowing_background.config.speed": "Speed: %s",
+  "gui.flowing_background.config.replace_title_screen": "Replace Title Panorama: %s"
 }

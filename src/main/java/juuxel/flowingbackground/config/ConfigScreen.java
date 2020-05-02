@@ -51,6 +51,17 @@ public final class ConfigScreen extends Screen {
                 FlowingBackground.speed = valueToSpeed(value);
             }
         });
+
+        addButton(new ButtonWidget(
+            width / 2 - 100,
+            height / 2 - 45,
+            200, 20,
+            getPanoramaMessage(FlowingBackground.replaceTitleScreen),
+            button -> {
+                FlowingBackground.replaceTitleScreen = !FlowingBackground.replaceTitleScreen;
+                button.setMessage(getPanoramaMessage(FlowingBackground.replaceTitleScreen));
+            }
+        ));
     }
 
     @Override
@@ -58,6 +69,10 @@ public final class ConfigScreen extends Screen {
         renderBackground();
         this.drawCenteredString(this.font, this.title.asFormattedString(), this.width / 2, 40, 0xFFFFFF);
         super.render(mouseX, mouseY, delta);
+    }
+
+    private static String getPanoramaMessage(boolean value) {
+        return I18n.translate("gui.flowing_background.config.replace_title_screen", I18n.translate(value ? "options.on" : "options.off"));
     }
 
     private static double speedToValue(float speed) {
