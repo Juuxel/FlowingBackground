@@ -4,7 +4,8 @@ import juuxel.flowingbackground.FlowingBackground;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.SliderWidget;
-import net.minecraft.client.resource.language.I18n;
+import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 
 import java.text.DecimalFormat;
@@ -29,21 +30,22 @@ public final class ConfigScreen extends Screen {
             width / 2 - 100,
             height / 2 + 40,
             200, 20,
-            I18n.translate("gui.done"),
+            new TranslatableText("gui.done"),
             button -> {
                 Config.save();
-                minecraft.openScreen(parent);
+                client.openScreen(parent);
             }
         ));
 
-        addButton(new SliderWidget(width / 2 - 100, height / 2 - 20, 200, 20, speedToValue(FlowingBackground.speed)) {
+        double initialValue = speedToValue(FlowingBackground.speed);
+        addButton(new SliderWidget(width / 2 - 100, height / 2 - 20, 200, 20, getMessage(initialValue), initialValue) {
             {
                 updateMessage();
             }
 
             @Override
             protected void updateMessage() {
-                setMessage(I18n.translate("gui.flowing_background.config.speed", SPEED_FORMAT.format(valueToSpeed(value))));
+                setMessage(ConfigScreen.getMessage(value));
             }
 
             @Override
@@ -54,10 +56,15 @@ public final class ConfigScreen extends Screen {
     }
 
     @Override
-    public void render(int mouseX, int mouseY, float delta) {
-        renderBackground();
-        this.drawCenteredString(this.font, this.title.asFormattedString(), this.width / 2, 40, 0xFFFFFF);
-        super.render(mouseX, mouseY, delta);
+    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+        renderBackground(matrices);
+        // TODO: CHECK THIS WHEN YOU UPDATE MAPPINGS!!!
+        drawStringWithShadow(matrices, textRenderer, title, this.width / 2, 40, 0xFFFFFF);
+        super.render(matrices, mouseX, mouseY, delta);
+    }
+
+    private static Text getMessage(double value) {
+        return new TranslatableText("gui.flowing_background.config.speed", SPEED_FORMAT.format(valueToSpeed(value)));
     }
 
     private static double speedToValue(float speed) {
