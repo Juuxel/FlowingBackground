@@ -6,6 +6,9 @@
   "mixins": [
   ],
   "client": [
+    "EntryListWidgetMixin",
+    "GameRendererMixin",
+    "ListWidgetMixin",
     "ScreenMixin"
   ],
   "injectors": {
