@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "flowing_background",
+  "version": "${version}",
+
+  "name": "Flowing Background",
+  "description": "Re-adds the flowing dirt background for screens from Indev!",
+  "authors": [
+    "Juuz"
+  ],
+  "contact": {
+    "sources": "https://github.com/Juuxel/FlowingBackground",
+    "issues": "https://github.com/Juuxel/FlowingBackground/issues"
+  },
+
+  "license": "LGPL-3.0-only",
+  "icon": "assets/flowing_background/icon.png",
+
+  "environment": "client",
+  "mixins": [
+    "mixins.flowing_background.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": ">=1.15.2"
+  }
+}
