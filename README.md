@@ -11,4 +11,4 @@
 *Flowing Background* makes the dirt texture behind
 screens flow upwards like in [Indev](https://minecraft.gamepedia.com/File:EarlyIndevTitle.gif).
 
-<div style="width:100%;height:0px;position:relative;padding-bottom:56.250%;"><iframe src="https://streamable.com/e/kw60vs" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
+<embed src="https://streamable.com/e/kw60vs" style="width:100%;height:0px;position:relative;padding-bottom:56.250%;">
