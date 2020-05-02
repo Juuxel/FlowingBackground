@@ -3,13 +3,15 @@
   "minVersion": "0.8",
   "package": "juuxel.flowingbackground.mixin",
   "compatibilityLevel": "JAVA_8",
+  "plugin": "juuxel.flowingbackground.FlowingBackgroundMixinPlugin",
   "mixins": [
   ],
   "client": [
     "EntryListWidgetMixin",
     "GameRendererMixin",
     "ListWidgetMixin",
-    "ScreenMixin"
+    "ScreenMixin",
+    "modmenu.ModsScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
