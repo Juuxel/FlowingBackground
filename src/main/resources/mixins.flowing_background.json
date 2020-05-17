@@ -12,7 +12,9 @@
     "ListWidgetMixin",
     "ScreenMixin",
     "TitleScreenMixin",
-    "modmenu.ModsScreenMixin"
+    "modmenu.ModsScreenMixin",
+    "cloth.ClothConfigScreenMixin",
+    "cloth.DynamicEntryListWidgetMixin"
   ],
   "injectors": {
     "defaultRequire": 1

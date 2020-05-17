@@ -16,7 +16,11 @@ public final class FlowingBackgroundMixinPlugin implements IMixinConfigPlugin {
     private static final ImmutableMap<String, BooleanSupplier> CONDITIONS =
         ImmutableMap.of(
             "juuxel.flowingbackground.mixin.modmenu.ModsScreenMixin",
-            () -> FabricLoader.getInstance().isModLoaded("modmenu")
+            () -> FabricLoader.getInstance().isModLoaded("modmenu"),
+            "juuxel.flowingbackground.mixin.cloth.ClothConfigScreenMixin",
+            () -> FabricLoader.getInstance().isModLoaded("cloth-config2"),
+            "juuxel.flowingbackground.mixin.cloth.DynamicEntryListWidgetMixin",
+            () -> FabricLoader.getInstance().isModLoaded("cloth-config2")
         );
 
     @Override
