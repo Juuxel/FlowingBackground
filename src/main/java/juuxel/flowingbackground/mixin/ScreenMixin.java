@@ -10,13 +10,13 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(Screen.class)
 abstract class ScreenMixin {
     @Redirect(
-        method = "renderDirtBackground",
+        method = "renderBackgroundTexture",
         at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/client/render/VertexConsumer;texture(FF)Lnet/minecraft/client/render/VertexConsumer;"
         )
     )
-    private VertexConsumer flowingBackground_onRenderDirtBackground(VertexConsumer vertexConsumer, float u, float v) {
+    private VertexConsumer flowingBackground_onRenderBackgroundTexture(VertexConsumer vertexConsumer, float u, float v) {
         float progress = FlowingBackground.getProgress();
         return vertexConsumer.texture(u, v + progress / 32f);
     }

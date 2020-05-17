@@ -18,7 +18,7 @@ abstract class TitleScreenMixin extends Screen {
     @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/RotatingCubeMapRenderer;render(FF)V"))
     private void flowingBackground_onRender(RotatingCubeMapRenderer renderer, float delta, float alpha) {
         if (FlowingBackground.replaceTitleScreen) {
-            renderDirtBackground(0);
+            renderBackgroundTexture(0);
         } else {
             renderer.render(delta, alpha);
         }
