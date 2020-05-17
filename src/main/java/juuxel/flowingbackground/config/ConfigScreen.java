@@ -66,7 +66,7 @@ public final class ConfigScreen extends Screen {
 
     @Override
     public void render(int mouseX, int mouseY, float delta) {
-        renderBackground();
+        renderDirtBackground(0);
         this.drawCenteredString(this.font, this.title.asFormattedString(), this.width / 2, 40, 0xFFFFFF);
         super.render(mouseX, mouseY, delta);
     }
