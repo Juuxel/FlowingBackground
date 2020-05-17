@@ -6,7 +6,7 @@ import net.fabricmc.api.ClientModInitializer;
 public final class FlowingBackground implements ClientModInitializer {
     public static final int SLOWNESS = 8;
     public static final int MAX_PROGRESS = 32;
-    public static final float MIN_SPEED = 0.5f;
+    public static final float MIN_SPEED = 0f;
     public static final float MAX_SPEED = 4f;
     public static float speed = 1.0f;
     public static boolean replaceTitleScreen = false;

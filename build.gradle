@@ -23,6 +23,9 @@ dependencies {
     // You may need to force-disable transitiveness on them.
     modCompileOnly "io.github.prospector:modmenu:$project.modmenu"
     modRuntime "io.github.prospector:modmenu:$project.modmenu"
+
+    modCompileOnly "me.shedaniel.cloth:config-2:$project.cloth_config"
+    modRuntime "me.shedaniel.cloth:config-2:$project.cloth_config"
 }
 
 processResources {

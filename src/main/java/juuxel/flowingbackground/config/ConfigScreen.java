@@ -68,7 +68,7 @@ public final class ConfigScreen extends Screen {
 
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        renderBackground(matrices);
+        renderDirtBackground(0);
         // TODO: CHECK THIS WHEN YOU UPDATE MAPPINGS!!!
         drawStringWithShadow(matrices, textRenderer, title, this.width / 2, 40, 0xFFFFFF);
         super.render(matrices, mouseX, mouseY, delta);

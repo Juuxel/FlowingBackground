@@ -2,6 +2,7 @@ package juuxel.flowingbackground.config;
 
 import juuxel.flowingbackground.FlowingBackground;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.util.math.MathHelper;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -36,7 +37,7 @@ public final class Config {
             Properties properties = createProperties();
             properties.load(reader);
 
-            FlowingBackground.speed = Float.parseFloat(properties.getProperty(KEY_SPEED));
+            FlowingBackground.speed = MathHelper.clamp(Float.parseFloat(properties.getProperty(KEY_SPEED)), FlowingBackground.MIN_SPEED, FlowingBackground.MAX_SPEED);
             FlowingBackground.replaceTitleScreen = Boolean.parseBoolean(properties.getProperty(KEY_REPLACE_TITLE_SCREEN));
         } catch (IOException e) {
             throw new UncheckedIOException("Could not load Flowing Background config file!", e);
