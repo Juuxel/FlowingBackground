@@ -22,4 +22,12 @@ abstract class TitleScreenMixin extends Screen {
             renderer.render(delta, alpha);
         }
     }
+
+    @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/TitleScreen;blit(IIIIFFIIII)V", ordinal = 0))
+    private void flowingBackground_onRender_onBlit(int x, int y, int width, int height, float u, float v, int uWidth, int vHeight, int texWidth, int texHeight) {
+        // Disable panorama overlay rendering when the title screen panorama is replaced
+        if (!FlowingBackground.replaceTitleScreen) {
+            blit(x, y, width, height, u, v, uWidth, vHeight, texWidth, texHeight);
+        }
+    }
 }
