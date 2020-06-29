@@ -1,0 +1,14 @@
+{
+  "gui.flowing_background.config.title": "Virtaava tausta",
+  "gui.flowing_background.config.speed": "Nopeus: %s",
+  "gui.flowing_background.config.replace_title_screen": "Korvaa otsikkopanoraama: %s",
+  "gui.flowing_background.config.direction": "Suunta: %s",
+  "gui.flowing_background.config.direction.north": "Pohjoinen",
+  "gui.flowing_background.config.direction.northeast": "Koillinen",
+  "gui.flowing_background.config.direction.east": "Itä",
+  "gui.flowing_background.config.direction.southeast": "Kaakko",
+  "gui.flowing_background.config.direction.south": "Etelä",
+  "gui.flowing_background.config.direction.southwest": "Lounas",
+  "gui.flowing_background.config.direction.west": "Länsi",
+  "gui.flowing_background.config.direction.northwest": "Luode"
+}
