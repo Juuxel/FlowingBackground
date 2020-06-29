@@ -17,7 +17,6 @@ abstract class ModsScreenMixin {
         )
     )
     private static VertexConsumer flowingBackground_onOverlayBackground_onTexture(VertexConsumer vertexConsumer, float u, float v) {
-        float progress = FlowingBackground.getProgress();
-        return vertexConsumer.texture(u, v + progress / 32f);
+        return FlowingBackground.handleTexture(vertexConsumer, u, v);
     }
 }

@@ -1,5 +1,14 @@
 {
   "gui.flowing_background.config.title": "Flowing Background",
   "gui.flowing_background.config.speed": "Speed: %s",
-  "gui.flowing_background.config.replace_title_screen": "Replace Title Panorama: %s"
+  "gui.flowing_background.config.replace_title_screen": "Replace Title Panorama: %s",
+  "gui.flowing_background.config.direction": "Direction: %s",
+  "gui.flowing_background.config.direction.north": "North",
+  "gui.flowing_background.config.direction.northeast": "Northeast",
+  "gui.flowing_background.config.direction.east": "East",
+  "gui.flowing_background.config.direction.southeast": "Southeast",
+  "gui.flowing_background.config.direction.south": "South",
+  "gui.flowing_background.config.direction.southwest": "Southwest",
+  "gui.flowing_background.config.direction.west": "West",
+  "gui.flowing_background.config.direction.northwest": "Northwest"
 }

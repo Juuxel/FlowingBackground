@@ -1,5 +1,6 @@
 package juuxel.flowingbackground.config;
 
+import juuxel.flowingbackground.Direction;
 import juuxel.flowingbackground.FlowingBackground;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -7,6 +8,7 @@ import net.minecraft.client.gui.widget.SliderWidget;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 
 import java.text.DecimalFormat;
 
@@ -37,8 +39,8 @@ public final class ConfigScreen extends Screen {
             }
         ));
 
-        double initialValue = speedToValue(FlowingBackground.speed);
-        addButton(new SliderWidget(width / 2 - 100, height / 2 - 20, 200, 20, getSpeedMessage(initialValue), initialValue) {
+        double initialSpeed = speedToValue(FlowingBackground.speed);
+        addButton(new SliderWidget(width / 2 - 100, height / 2 - 20, 200, 20, getSpeedMessage(initialSpeed), initialSpeed) {
             {
                 updateMessage();
             }
@@ -64,6 +66,11 @@ public final class ConfigScreen extends Screen {
                 button.setMessage(getPanoramaMessage(FlowingBackground.replaceTitleScreen));
             }
         ));
+
+        addButton(new ButtonWidget(width / 2 - 100, height / 2 + 5, 200, 20, getDirectionMessage(), button -> {
+            FlowingBackground.direction = FlowingBackground.direction.cycle();
+            button.setMessage(getDirectionMessage());
+        }));
     }
 
     @Override
@@ -78,7 +85,18 @@ public final class ConfigScreen extends Screen {
     }
 
     private static Text getPanoramaMessage(boolean value) {
-        return new TranslatableText("gui.flowing_background.config.replace_title_screen", new TranslatableText(value ? "options.on" : "options.off"));
+        return new TranslatableText(
+            "gui.flowing_background.config.replace_title_screen",
+            new TranslatableText(value ? "options.on" : "options.off").formatted(value ? Formatting.GREEN : Formatting.RED)
+        );
+    }
+
+    private static Text getDirectionMessage() {
+        Direction direction = FlowingBackground.direction;
+        return new TranslatableText(
+            "gui.flowing_background.config.direction",
+            direction.getName().copy().formatted(Formatting.values()[direction.ordinal() + 7])
+        );
     }
 
     private static double speedToValue(float speed) {

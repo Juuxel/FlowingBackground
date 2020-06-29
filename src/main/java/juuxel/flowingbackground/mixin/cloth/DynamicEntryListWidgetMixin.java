@@ -17,8 +17,7 @@ abstract class DynamicEntryListWidgetMixin {
         )
     )
     private VertexConsumer flowingBackground_onRenderHoleBackground_onTexture(VertexConsumer vertexConsumer, float u, float v) {
-        float progress = FlowingBackground.getProgress();
-        return vertexConsumer.texture(u, v + progress / 32f);
+        return FlowingBackground.handleTexture(vertexConsumer, u, v);
     }
 
     @Redirect(
@@ -29,7 +28,6 @@ abstract class DynamicEntryListWidgetMixin {
         )
     )
     private VertexConsumer flowingBackground_onRenderBackBackground_onTexture(VertexConsumer vertexConsumer, float u, float v) {
-        float progress = FlowingBackground.getProgress();
-        return vertexConsumer.texture(u, v + progress / 32f);
+        return FlowingBackground.handleTexture(vertexConsumer, u, v);
     }
 }
