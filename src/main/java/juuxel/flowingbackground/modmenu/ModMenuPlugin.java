@@ -6,11 +6,6 @@ import juuxel.flowingbackground.config.ConfigScreen;
 
 public final class ModMenuPlugin implements ModMenuApi {
     @Override
-    public String getModId() {
-        return "flowing_background";
-    }
-
-    @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
         return ConfigScreen::new;
     }

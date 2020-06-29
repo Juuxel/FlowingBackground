@@ -9,11 +9,9 @@
   "client": [
     "EntryListWidgetMixin",
     "GameRendererMixin",
-    "ListWidgetMixin",
     "ScreenMixin",
     "TitleScreenMixin",
     "modmenu.ModsScreenMixin",
-    "cloth.ClothConfigScreenMixin",
     "cloth.DynamicEntryListWidgetMixin"
   ],
   "injectors": {
